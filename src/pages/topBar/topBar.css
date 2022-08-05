@@ -11,3 +11,6 @@
     padding: 0 40px 0 48px;
     background-color: white;
 }
+.topBar :hover {
+    cursor: pointer;
+}

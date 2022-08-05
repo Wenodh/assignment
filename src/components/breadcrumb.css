@@ -5,11 +5,14 @@
 }
 .p {
     font-size: 16px;
-    margin-left: 9px;
+    padding-left: 9px;
     margin-bottom: 0px;
     color: #7e858e;
 }
 .img {
     width: 7px;
     height: 12px;
+}
+.breadCrumb :hover {
+    cursor: pointer;
 }
