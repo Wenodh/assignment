@@ -6,8 +6,7 @@ import './resource.css';
 import { useNavigate } from 'react-router-dom';
 
 import BreadCrumb from '../../components/BreadCrumb';
-import CircleImg from '../../components/CircleImg';
-import back from '../../icons/back.png';
+import ResourceCard from '../../components/ResourceCard';
 import { GetResourcesDetailsById } from '../../services/restApi';
 const Resource = () => {
     let navigate = useNavigate();
@@ -36,19 +35,25 @@ const Resource = () => {
     ];
     const rows = data?.resource_items ?? [];
     return (
-        <div>
+        <div className="body">
             {loading ? (
                 <>loading...</>
             ) : (
                 <>
-                    <BreadCrumb />
-                    <CircleImg src={data?.icon_url} size="64px" br="2px" />
-                    <h4>{data?.title}</h4>
-                    <p>{data?.link}</p>
-                    <p>{data?.description}</p>
-                    <button>UPDATE</button>
-                    <p>Items</p>
-                    <input />
+                    <div style={{ paddingBottom: '32px' }}>
+                        <BreadCrumb />
+                    </div>
+                    <ResourceCard
+                        icon_url={data?.icon_url}
+                        title={data?.title}
+                        link={data?.link}
+                        description={data?.description}
+                    />
+                    <button className="blueBtn">UPDATE</button>
+                    <div className="search">
+                        <p>Items</p>
+                        <input />
+                    </div>
 
                     <div style={{ height: 400, width: 1097 }}>
                         <DataGrid

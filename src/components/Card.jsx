@@ -28,9 +28,8 @@ const Card = (props) => {
             <div style={inner}>
                 <img
                     style={{
-                        width: '20px',
-                        height: '20px',
-                        padding: '12px',
+                        width: '44px',
+                        height: '44px',
                         border: '2px solid #D7DFE9',
                         borderRadius: '4px',
                     }}
@@ -45,11 +44,36 @@ const Card = (props) => {
                         paddingLeft: '16px',
                     }}
                 >
-                    <h4>{props.data.title}</h4>
-                    <p>{props.data.category}</p>
+                    <p
+                        style={{
+                            fontFamily: 'HK Grotesk',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            fontSize: '16px',
+                            color: '#171F46',
+                            margin: '0',
+                        }}
+                    >
+                        {props.data.title}
+                    </p>
+                    <p
+                        style={{
+                            fontFamily: 'HK Grotesk',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            fontSize: '12px',
+                            color: '#7E858E',
+                            margin: '0',
+                        }}
+                    >
+                        {props.data.category}
+                    </p>
                 </div>
             </div>
-            <a style={{ paddingTop: '20px' }} href={props.data.link}>
+            <a
+                style={{ paddingTop: '20px', fontSize: '14px' }}
+                href={props.data.link}
+            >
                 {props.data.link}
             </a>
             <p style={{ paddingTop: '8px' }}>{props.data.description}</p>

@@ -1,0 +1,36 @@
+.cardBody {
+    width: 522px;
+    height: 144px;
+}
+.cardIcon {
+    display: flex;
+}
+.cardSub {
+    padding-left: 16px;
+}
+
+.title {
+    font-family: 'HK Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    color: #171f46;
+}
+.link {
+    font-family: 'HK Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #0b69ff;
+}
+.des {
+    font-family: 'HK Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    padding-top: 8;
+    color: #7e858e;
+}

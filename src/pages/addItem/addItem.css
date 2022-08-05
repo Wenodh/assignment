@@ -19,8 +19,13 @@
 }
 
 .button {
-    width: 93px;
+    margin-top: 20px;
+    padding: 8px 20px;
     height: 40px;
     background: #0b69ff;
     border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    border: 0;
 }

@@ -11,7 +11,7 @@ const BreadCrumb = () => {
     return (
         <div className="breadCrumb" onClick={() => navigate(-1)}>
             <img className="img" src={back} alt="" />
-            <p>{tag[0].toUpperCase() + tag.slice(1)}</p>
+            <p className="p">{tag[0].toUpperCase() + tag.slice(1)}</p>
         </div>
     );
 };
