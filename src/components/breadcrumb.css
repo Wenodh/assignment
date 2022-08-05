@@ -1,0 +1,15 @@
+.breadCrumb {
+    display: flex;
+    height: 16px;
+    align-items: center;
+}
+p {
+    font-size: 16px;
+    margin-left: 9px;
+    margin-bottom: 0px;
+    color: #7e858e;
+}
+.img {
+    width: 7px;
+    height: 12px;
+}
