@@ -15,19 +15,23 @@ const Resource = () => {
     let navigate = useNavigate();
     let { id, tag } = useParams();
     const [data, setData] = useState();
-    const [selectedRow, setSelectedRow] = useState(0);
+    const [selectedRow, setSelectedRow] = useState([]);
+    const [rows, setRows] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        //fetching details of item using id
         setLoading(true);
         GetResourcesDetailsById(id)
             .then((res) => {
-                console.log(res.data);
                 setData(res.data);
+                setRows(res.data.resource_items ?? []);
             })
             .catch((err) => alert(err.message))
             .finally(() => setLoading(false));
     }, [id]);
+
+    //updating an item present only shows success or failure toast
     const handleUpdate = () => {
         let conditions = {
             position: 'top-right',
@@ -41,23 +45,33 @@ const Resource = () => {
         };
         updateResourceItem()
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 toast.success('Updated successfully', conditions);
             })
             .catch((err) => {
                 toast.error('Something went wrong', conditions);
             });
     };
+
+    //navigate to add new item page
     const handleNav = () => {
         let path = `/addItem/${tag}/${id}`;
         navigate(path);
     };
+
+    // to delete selected rows in the table
+    const handleDelete = () => {
+        setRows(rows.filter((item) => !selectedRow.includes(item.id)));
+        // console.log(rows.filter((item) => !selectedRow.includes(item.id)));
+    };
+
+    //table columns
     const columns = [
         { field: 'title', headerName: 'TITLE', width: 200 },
         { field: 'description', headerName: 'DESCRIPTION', width: 500 },
         { field: 'link', headerName: 'LINK', width: 300 },
     ];
-    const rows = data?.resource_items ?? [];
+
     return (
         <div className="body">
             <ToastContainer />
@@ -92,20 +106,18 @@ const Resource = () => {
 
                     <div style={{ height: 450, width: '100%' }}>
                         <DataGrid
-                            bgcolor={'#FFFFFF'}
-                            color={'#FFFFFF'}
                             rows={rows}
                             columns={columns}
                             pageSize={6}
                             rowsPerPageOptions={[6]}
                             checkboxSelection
-                            onSelectionModelChange={(row) =>
-                                setSelectedRow(row.length)
-                            }
+                            onSelectionModelChange={(row) => {
+                                setSelectedRow(row);
+                            }}
                         />
                         <button
                             className={
-                                selectedRow > 0
+                                selectedRow.length > 0
                                     ? 'btn disableBtn'
                                     : 'btn successBtn'
                             }
@@ -115,10 +127,11 @@ const Resource = () => {
                         </button>
                         <button
                             className={
-                                selectedRow > 0
+                                selectedRow.length > 0
                                     ? 'ml btn deleteBtn'
                                     : 'ml btn disableBtn'
                             }
+                            onClick={handleDelete}
                         >
                             DELETE
                         </button>

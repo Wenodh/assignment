@@ -10,14 +10,16 @@ const Home = () => {
     const [requests, setRequests] = useState([]);
     const [users, setUsers] = useState([]);
     const [activeTab, setActiveTab] = useState(1);
+
+    //change tab on selection
     const changeActiveTab = (data) => {
         setActiveTab(data);
     };
 
+    //fetch all resources and grouping it as per tags
     useEffect(() => {
         GetResources()
             .then((res) => {
-                console.log(res);
                 const data = res.data.reduce((group, product) => {
                     const { tag } = product;
                     group[tag] = group[tag] ?? [];
@@ -27,7 +29,6 @@ const Home = () => {
                 setRequests(data?.request ?? []);
                 setResources(data?.resource ?? []);
                 setUsers(data?.user ?? []);
-                console.log(data);
             })
             .catch((err) => alert(err.message));
     }, []);

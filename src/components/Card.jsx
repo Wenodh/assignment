@@ -19,6 +19,7 @@ const Card = (props) => {
         justifyContent: 'flex-start',
     };
 
+    //to view  resource item full details
     const handleNav = () => {
         const path = `/${props.data.tag}/${props.data.id}`;
         navigate(path);

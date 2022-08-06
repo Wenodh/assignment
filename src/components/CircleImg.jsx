@@ -6,6 +6,7 @@ const CircleImg = (props) => {
         height: props?.size,
         width: props?.size,
         border: `${props.br ?? '0px'} solid #D7DFE9`,
+        objectFit: 'cover',
     };
     return <img style={circle} src={props?.src} alt="" />;
 };
