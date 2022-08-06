@@ -73,6 +73,8 @@ const Card = (props) => {
             <a
                 style={{ paddingTop: '20px', fontSize: '14px' }}
                 href={props.data.link}
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 {props.data.link}
             </a>

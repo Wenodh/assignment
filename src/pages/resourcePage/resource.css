@@ -7,14 +7,54 @@
     padding-top: 36px;
     padding-bottom: 28px;
 }
-
-.blueBtn {
+.btn {
     padding: 8px 20px;
     height: 40px;
-    background: #0b69ff;
     border-radius: 4px;
     font-weight: 600;
     font-size: 14px;
     color: #ffffff;
     border: 0;
+}
+.blueBtn {
+    background: #0b69ff;
+}
+
+.successBtn {
+    margin-top: 10px;
+    background: #2dca73;
+}
+.disableBtn {
+    margin-top: 10px;
+    background: #d7dfe9;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.deleteBtn {
+    margin-top: 10px;
+    background: #ff0b37;
+}
+.ml {
+    margin-left: 24px;
+}
+
+.searchBox {
+    display: flex;
+    width: 648px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #d7dfe9;
+    border-radius: 3px;
+    align-items: center;
+    padding: 10px;
+}
+.searchIcon {
+    width: 12px;
+    height: 12px;
+    margin-right: 16px;
+}
+.searchInput {
+    border: none;
+    outline: none;
+    width: 100%;
 }

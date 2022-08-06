@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Card from '../components/Card';
+import SearchBar from '../components/SearchBar';
 import Tabs from '../components/Tabs';
 import { GetResources } from './../services/restApi';
 
@@ -32,16 +33,17 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div style={{ paddingLeft: '132px', paddingRight: '132px' }}>
             <Tabs func={changeActiveTab} activeTab={activeTab} />
-            <input style={{ margin: '16px 0px 16px 148px' }} />
+            <div style={{ marginLeft: '16px' }}>
+                <SearchBar />
+            </div>
+            {/* <input style={{ margin: '16px 0px 16px 148px' }} /> */}
             <div
                 style={{
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'space-between',
-                    paddingLeft: '132px',
-                    paddingRight: '132px',
                 }}
             >
                 {activeTab === 0 &&
